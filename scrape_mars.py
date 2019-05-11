@@ -64,12 +64,12 @@ def scrape():
     for hemisphere in hemispheres_info:
         title = hemisphere.find('div', class_="description").a.get_text()
         image_link = hemisphere.find('div', class_="description").a['href']
-    #     print(image_link)
+        print(image_link)
         browser.visit(base_hem+image_link)
         hem_html = browser.html
         hem_soup = BeautifulSoup(hem_html, 'html.parser')
         image_url = hem_soup.find('div', class_="downloads").ul.li.a['href']
-    #     print(image_url)
+        print(image_url)
         hem_dict = {'title': title, "image_url": image_url}
         hemisphere_image_urls.append(hem_dict)
 
